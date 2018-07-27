@@ -70,3 +70,9 @@ MVCÊÇ´Óangular¿ò¼ÜÖÐµÚÒ»´ÎÌá³öMVCµÄÀíÄî£¬ËùÒÔangularÊÇ¾­µäµÄµÚÒ»´ÎÌá³öMVCÄ£Ê½µÄ¿
 
 ¸ù±¾Ã»ÓÐMVVMÉè¼ÆÄ£Ê½,MVVMÊÇMVCÄ£Ê½ÑÜÉú¶øÀ´µÄ
 MVVMÆäÊµ¾ÍÊÇÖ÷¶¯µÄMVCÄ£Ê½£¬MVCÊÇ±»¶¯µÄ£¬VM£ºViewModel£¨view+controller+model£©
+
+
+node_modules
+Õâ¸öÎÄ¼þ¼Ð¾ÍÊÇÓÃÀ´´æ·ÅÒ»Ð©ÏßÉÏÏßÏÂ²å¼þµÄÎÄ¼þ¼Ð£¨ÒÀÀµÎÄ¼þ£©
+
+node.jsÊÇÒ»¸ö·Ç×èÈûÐÔµÄÅÜÔÚÇ°¶Ëä¯ÀÀÆ÷ÏÂµÄºó¶ËÓïÑÔ
