@@ -1,0 +1,69 @@
+vue-router是什么?它有哪些组件？
+vue用来写路由的一个插件。router-link、router-view
+
+vue-router有哪几种导航钩子？
+三种
+第一种：全局导航钩子:router.beforeEach(to,from,next),
+作用：跳转前进行判断拦截。
+第二种：组件内的钩子
+第三种：单独路由独享组件
+
+怎么定义vue-router的动态路由？怎么获取传过来的动态参数？
+在router目录下的index.js文件中，对path属性加上/:id,使用router对象的params.id。
+this.$route.params
+
+Vue的双向数据绑定原理是什么
+Vue.js采用数据劫持的方式，通过object.defineProperty()来劫持各个属性的setter,getter，在数据变动时发布消息给订阅者，触发相应的监听回调
+
+
+v-model是什么怎么用，vue中标签怎么绑定事件
+可以实现双向绑定指令（v-class  v-for  v-if  v-show v-on）
+vue的model层的data属性
+绑定事件:<input @click="logo()" />
+
+
+mvvm框架是什么?它和其他框架的区别？那些场景适合
+mvvm是一个model+view+viewModel框架
+区别：vue数据驱动通过数据来显示视图层而不是节点操作
+场景：vue在数据操作比较多的场景更加便捷
+
+
+HTML5提供了两种在客户端存储数据的新方法
+localStorage  没有时间限制的数据存储(刷新之后依然存在数据)
+sessionStorage  针对一个session的数据存储
+
+组件的作用
+组件可以扩展HTML中元素 封装可重用的代码
+
+
+组件的组织
+注册一个全局组件语法格式
+Vue.component('tagName',options)
+tagName 为组件名 //字符串
+options 为配置选项  //对象
+注册后，可以使用此方法调用组件
+
+//组件名不能与HTML标签相同
+
+视图层：<div id="aa>
+	   <tagName></tagName>
+	</div>
+数据：写在js中 在new.vue实例外面
+全局：Vue.component("tagName",{
+ 	template:"<h2>你好</h2>
+      }
+局部：js中
+	var child ={
+	   template : "<h2>你好</h2>"
+	}
+	new Vue({
+	  el:"#aa",
+	  components:{
+	  "tagName":child
+	  }
+	})
+
+
+
+局部定义CSS
+在当前组件中的style标签写入scoped

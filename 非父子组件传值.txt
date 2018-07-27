@@ -1,0 +1,30 @@
+1.新建一个js文件 然后引入vue 实例化vue 最后暴露这个实例
+import Vue from "vue" //引入vue
+var VueEvent = new Vue() //实例化vue
+export default VueEvent //暴露实例
+
+2.在要广播的地方引入刚才定义的实例
+import VueEvent from "路径"
+
+3.通过VueEvent.$emit('自定义参数名','数据'）
+methods:{
+   getnews(){
+	VueEvent.$emit("to-news",this.home)
+   }
+}
+4.在接收数据的地方通过$on接收广播的数据
+VueEmit.$on('自定义的名称',function(){.....})
+mounted(){  //监听
+	VueEvent.$on("to-news",function(data){})
+}
+
+$emit()只负责发送数据
+$on()只负责接收数据
+子 → 父
+子组件中用$emit()方法发送数据，$emit()接收参数为传递数据的方法和传递的数据，
+如下：
+@click="当前子组件中methods方法里面的发送数据的函数"
+
+父组件中接收数据，绑定的事件将click方法替换为send(监听发送数据的第一个参数名)。
+如下：
+@send="当前父组件中methods方法中接收数据的方法名"

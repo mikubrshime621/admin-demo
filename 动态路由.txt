@@ -1,0 +1,20 @@
+1.不同路由传值：动态路由
+
+①配置动态路由
+
+routes:[
+   //动态路径参数 以冒号开头
+   { path:'/user/:id',component:User}
+]
+
+②在对应的页面
+this.$route.params //获取动态路由的值
+
+③在跳转之前的页面视图层中
+<ul>
+   <li v-for="(item,index) in list">
+	<router-link :to="'/Cont/'+index">
+	    {{index}}--{{item}}
+	</router-link>
+   </li>
+</ul>

@@ -1,0 +1,59 @@
+VUE中组件之间的传值（通信）有四种：
+1.存储到vuex中
+2.通过props
+3.$emit()、$on()
+4.eventBus()
+
+
+A.父组件给子组件传值或方法
+1.父组件调用子组件的时候，绑定动态属性(在父组件中)
+  ①在父组件data中定义list:"这是要传递的组件名"
+  ②<v-header :title='list'></v-header>
+2.在子组件里通过props接受父组件传过来的数据
+  JS中③props:['title'] //props:{'title':string} =>prop验证 //定义title时必须为字符串  props与data同级
+3.直接在子组件中使用 {{title}}（在子组件template中写{{title}} //渲染）
+
+props：一切的操作都需要在子组件中进行处理，处理好之后传到父组件中，当前组件的template模版只能操作当前组件中的data里面的数据。只写一个组件，可以进行传递不同的数据，减少代码冗余。只能是父组件data传递到子组件。
+
+
+B.父组件主动获取子组件的数据和方法（也可以看作子组件给父组件传值）
+1.调用子组件的时候定义一个ref
+<v-header ref="header"></ v-header>
+2.在父组件里通过
+this.$refs.header.属性
+和this.$refs.header.方法
+
+属性eg:
+<button v-on:click = 'get()'></button>
+<v-header ref="head"></v-hedaer>
+this.$refs.head.ccc  //ccc为子组件中的内容
+
+方法:
+写在父组件中
+methods:{
+  get(){
+    this.ref.head.run()
+  }
+}
+
+
+
+C.子组件主动获取父组件的数据和方法
+this.$parent.数据
+this.$parent.方法
+
+
+D.子传父也用$emit
+
+
+E.任何组件之间都可以进行传递数据 eventBus
+
+eventBus数据传递：
+发送数据的生命周期中
+beforeCreate、created、beforeMount、mounted、beforeUpdate、updated不能发送数据
+beforeDestroy、destroyed可以发送数据
+接收数据的生命周期中
+beforeCreate、created、beforeMount可以接收数据
+mounted、beforeUpdate、updated、beforeDestroy、destroyed接收不了数据
+总结：
+旧组件等新组件挂载之前，新组等旧组件销毁之前（发送数据的是新组件，接收数据的是旧组件）

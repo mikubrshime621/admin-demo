@@ -1,0 +1,41 @@
+//安装 (在cmd中输入)
+//npm install vue-router --save
+
+//导入
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+//1.配置路由
+//定义组件
+import Router1 from './components/Router1.vue'
+import Router2 from './components/Router2.vue'
+
+//2.定义路由
+const routes = [
+  { path: '/Router1', component:Router1 },
+  { path: '/Router2', component:Router2 },
+  { path: '/*',redirect: '/Router2'}  //默认路由位置 这里默认指向Router2页面
+]
+
+//3.创建实例
+const router = new VueRouter({
+  routes
+  //(缩写)相当于 routes:routes
+})
+
+//4.挂载根实例
+const app = new Vue({
+  el: '#app',
+  router,
+  components:{ App },
+  template:'<App/>'
+}).$mount('#app')
+
+
+
+
+
+APP.vue中
+    <router-link to="/Router1">Router1</router-link>  <!-- 路由跳转 router-link相当于a标签 -->
+    <router-link to="/Router2">Router2</router-link>
+    <router-view></router-view> <!-- 挂载路由标签 -->

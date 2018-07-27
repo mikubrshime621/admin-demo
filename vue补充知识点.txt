@@ -1,0 +1,72 @@
+sass
+cnpm install node-sass --save-dev
+sass-loader
+cnpm install sass-loader --save-dev
+
+template中只能包含一个子元素
+
+package.json下
+dependencies：是发布到线上所需要的环境
+devDependencies：是辅助我们进行开发的一些插件，不需要发布到线上，属于开发时使用的辅助插件
+下载到dependencies: -S 或者 --save
+下载到devDependencies: -D 或者 --save-dev
+
+如遇到lang="scss"保存的情况 将行内scoped改为scope="scope"
+
+scss下可以使用function函数
+移动端适配
+$fontSize:37.5;
+@function px2Rem ($px){
+  @return $px/$fontSize +rem;
+}
+设计稿的尺寸只有两种
+1.640px宽度
+如果是640px的视觉稿，则设置为$fontSize:32
+2.750px宽度
+如果是750px的视觉稿，则设置为$fontSize:37.5
+
+(视觉稿宽度/10)/2 = $fontSize; （这种方法必须在scss下才能使用）
+
+
+Vue中同级之间引用组件需要加"./"
+
+vue数据双向绑定的原理：
+1.数据劫持
+2.数据劫持通过ES5中的Object.defineProperty属性封装而来的
+3.通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调
+4.IE8及以下浏览器的标准是ES3，没有Object.defineProperty，所以vue不兼容ie8及以下的浏览
+
+
+main.js中的
+render()函数其实就是更新视图的函数，初始化、数据改变，属性改变时调用此方法
+new Vue({
+  el: '#app',
+  router, 
+  render:f=>f(APP)
+})
+
+main.js:是vue项目中唯一的入口js文件
+App.vue:是vue项目中唯一的.vue入口文件
+index.html:是整个项目中唯一的入口文件
+
+//vue中需要添加的属性，为了解决跨域
+withCredentials:true
+crossDomain:true,
+//后台需要添加的属性，目的是为了能允许访问
+header('Access-Control-Allow-Origin:*');//允许所有来源访问
+
+header('Access-Control-Allow-Method:POST,GET,put,delete,head');//允许访问的方式
+
+
+MVC:
+  一共有23种设计模式，MVC是其中一种设计模式，属于后台的范畴，
+  M：model 模块层，就是数据层
+  V:view   视图层，展示数据的页面
+  C:controller 控制器，控制输出Model层数据到页面的一个桥梁
+
+js:是一种弱类型的超文本标记语言，没有类的概念，没有作用域（闭包），没有模块化的概念，而且是单线程的语言，从上到下执行
+以上都是模拟而来
+MVC是从angular框架中第一次提出MVC的理念，所以angular是经典的第一次提出MVC模式的框架
+
+根本没有MVVM设计模式,MVVM是MVC模式衍生而来的
+MVVM其实就是主动的MVC模式，MVC是被动的，VM：ViewModel（view+controller+model）
